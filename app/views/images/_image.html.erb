@@ -1,0 +1,15 @@
+
+<div class="col-sm-4">
+  <figure class="figure">
+    <%= image_tag image.picture.url(:thumb), class:"figure-img img-fluid rounded"%>
+    <figcaption class="figure-caption">
+      <%= image.description %>
+      <% if user_signed_in? %>
+      <%= link_to 'Editar', edit_image_path(image)%>
+      <%= link_to 'Eliminar', image , method: :delete, data: {confirm: '¿Estás seguro?'}%>
+        <% end%>
+    </figcaption>
+  </figure>
+</div>
+
+

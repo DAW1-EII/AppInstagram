@@ -1,0 +1,29 @@
+
+<%- if @image.errors.any? %>
+  <div class="alert alert-danger">
+    <h4 class="alert-heading">Oh no!</h4>
+    <p>Ha ocurrido un error</p>
+  </div>
+
+<% end %>
+
+
+  <div class="form-group">
+    <%= form_for @image, :html => {:multipart => true} do |i| %>
+      <%= i.label :description%><br>
+      <%= i.text_field :description, class: 'form-control'%>
+      <%- if @image.errors[:description].any? %>
+      <span class="badge badge-pill badge-danger">
+        <%=  @image.errors[:description].first%>
+      </span>
+        <% end %>
+      <br>
+        <%= i.label :picture %><br>
+        <%= i.file_field :picture %>
+      <br>
+      <%= i.submit 'Enviar' ,:class => 'btn btn-primary'%>
+    <% end %>
+  </div>
+
+
+
